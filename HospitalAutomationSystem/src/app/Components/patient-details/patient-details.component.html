@@ -1,0 +1,43 @@
+<body>
+    <div id="login">
+    <h3 class="text-center text-black pt-5">Patient Details</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" #pd="ngForm" class="form" (ngSubmit)="!pd.invalid && getPatientDetails()">
+                        <h3 class="text-center text-info">Please Enter Patient Id</h3>
+                        <div class="form-group">
+                            <label for="id" class="text-info">Patient ID</label><br>
+                            <input type="text" #i="ngModel" id="id" [(ngModel)]="sapid" name="sapid" class="form-control" required="required" minlength="9" maxlength="9">
+                            <div *ngIf="i.invalid && (i.dirty || i.touched )" style="color: red;">
+
+                                <div *ngIf="i.errors.required" style="font-size: smaller;">
+                                  Patient Id is required.
+                                </div>
+                                <div *ngIf="i.errors.minlength" style="font-size: smaller;">
+                                    Patient Id should be of 9 characters
+                                  </div>
+                                  <div *ngIf="i.errors.maxlength" style="font-size: smaller;">
+                                    Patient Id should be of 9 characters
+                                  </div>
+
+                              </div>
+                        </div>
+                        <div class="form-group">   
+                            <br>        
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!-- <script type="text/javascript">
+        function disappear() { 
+                setTimeout(function() { 
+                    $('#disa').fadeOut('fast'); 
+                }, 1000);
+</script> -->
+</body>

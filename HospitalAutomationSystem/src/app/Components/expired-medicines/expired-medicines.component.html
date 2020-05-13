@@ -1,0 +1,38 @@
+<body>
+<h2 style="text-align: center;">Medicine List(To be expired)</h2>
+<div class="alert alert-warning container" *ngIf="message">{{message}}</div> 
+<br><br>
+<div class="container">
+
+<table class="table">
+
+
+    <thead>
+
+        <tr>
+
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price/Qty</th>
+            <th>Expiry Date</th>
+            <th>Delete</th>
+
+        
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let d of data">
+
+            <td>{{d.medname}}</td>
+            <td>{{d.med_stock}}</td>
+            <td>{{d.priceperpiece}}</td>
+            <td>{{d.expiryDate}}</td>
+            <td><button (click)="deleteMedicine(d)" class="btn btn-warning">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+

@@ -1,0 +1,92 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark dark">
+    <a class="navbar-brand" style="color: white;">AJAY SAKSENA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/welcome" style="color: white;" *ngIf="jwtAuth.isAuthenticated()">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white mob" href="#" routerLink="/reception" style="color: white;" *ngIf="jwtAuth.checkSessionRole()">Register Patients
+            <span class="st">Register Patient Details</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi queue" href="#" routerLink="/examine" style="color: white;" *ngIf="jwtAuth.getDocRole()">Examine Patients
+            <span class="stack">Provide Medicines and Diagnosis to your patients</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="modal"
+        data-target="#addingmedicines">
+          <a class="nav-link whi ab" href="#" routerLink="/provideMedicine" style="color: white;" *ngIf="jwtAuth.checkStockHolder()">Provide Medicines
+            <span class="cd">Enter details of Medicines sold</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi ef" href="#" routerLink="/addstock" style="color: white;" *ngIf="jwtAuth.checkStockHolder()">Add Stock
+            <span class="gh">Register recieved stock</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi ij" href="#" routerLink="/medicineList" style="color: white;" *ngIf="jwtAuth.checkStockHolder()">Medicine List
+            <span class="kl">List of available medicines</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi hideDisplay" href="#" routerLink="/addDoc" style="color: white;" *ngIf="jwtAuth.getSessionRole()">AD
+            <span class="showDisplayOnHover">Add Doctors</span>
+          
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi d" href="#" routerLink="/addStockHolders" style="color: white;" *ngIf="jwtAuth.getSessionRole()">ASH
+            <span class="s">Add Stock Holders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link b" href="#" routerLink="/addReceptionists" style="color: white;" *ngIf="jwtAuth.getSessionRole()">AR
+            <span class="c">Add Receptionists</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi x" href="#" routerLink="/expiredMedicines" style="color: white;" *ngIf="jwtAuth.getSessionRole() || jwtAuth.checkStockHolder()">Expired Medicines
+            <span class="y">Get Medicines that has or will be expired in the present month</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi w" href="#" routerLink="/lowStockMedicines" style="color: white;" *ngIf="jwtAuth.getSessionRole() || jwtAuth.checkStockHolder()">Low Stock Medicines
+            <span class="z">Get Medicines whose stock is less than 50</span>
+          </a>        
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi p" href="#" routerLink="/patientDetails" style="color: white;" *ngIf="jwtAuth.getSessionRole()">Patient Details
+            <span class="q">Fetch Patient Details by Sap Id</span>
+          </a>
+        
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi r" href="#" routerLink="/removeStaff" style="color: white;" *ngIf="jwtAuth.getSessionRole()">Remove Staff
+            <span class="s">Remove Employees</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link whi m" href="#" routerLink="/changePassword" style="color: white;" *ngIf="jwtAuth.isAuthenticated()">Change Password
+            <span class="n">Change your Password</span>
+          </a>
+        </li>
+      </ul>
+    <ul class="navbar-nav navbar-right">
+        <li class="nav-item"> <a class="nav-link" style="color: white;" href="#" *ngIf="!jwtAuth.isAuthenticated()">Login
+        </a></li>
+
+        <li class="nav-item"> <a class="nav-link whi" style="color: white;" routerLink='/logout' href="#" *ngIf="jwtAuth.isAuthenticated()">Logout</a></li>
+    </ul>
+    </div>
+  </nav>
+</header>
+
+
+

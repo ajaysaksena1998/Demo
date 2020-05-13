@@ -1,0 +1,43 @@
+<body>
+<h2 style="text-align: center;">Patient List</h2>
+<br><br>
+<div class="container">
+
+<table class="table">
+
+
+    <thead>
+
+        <tr>
+
+            <th>Patient ID</th>
+            <th>Temperature</th>
+            <th>Blood Pressure</th>
+            <th>Weight</th>
+            <th>Chronic Ailment</th>
+            <th>Allergies</th>
+            <th>Prescribe Medicines</th>
+            <th>Past History</th>
+
+        
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let patient of patients">
+
+            <td>{{patient.sapid}}</td>
+            <td>{{patient.temperature}}</td>
+            <td>{{patient.bloodpressure}}</td>
+            <td>{{patient.weight}}</td>
+            <td>{{patient.chronicAilment}}</td>
+            <td>{{patient.allergies}}</td>
+            <td><button (click)="prescribeMedicine(patient.sapid)" class="btn btn-success">Prescribe</button></td>
+            <td><button (click)="getPastHistory(patient.sapid)" class="btn btn-warning">Past History</button></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>

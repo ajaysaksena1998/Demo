@@ -1,0 +1,73 @@
+<body>
+    <div id="login">
+    <h3 class="text-center text-black pt-5">Please Add Doctors</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" #ad="ngForm" class="form" (ngSubmit)="!ad.invalid && handleDoctors()" #docForm= "ngForm">
+                        <h3 class="text-center text-info">Add Doctors</h3>
+                        <div class="form-group">
+                            <label for="id" class="text-info">ID</label><br>
+                            <input type="text" #i="ngModel" [(ngModel)]="doctor.doctorId" name="doctorId" id="id" class="form-control" required="required" minlength="9" maxlength="9">
+                            <div *ngIf="i.invalid && (i.dirty || i.touched )" style="color: red;">
+
+                                <div *ngIf="i.errors.required" style="font-size: smaller;">
+                                  Doctor Id is required.
+                                </div>
+                                <div *ngIf="i.errors.minlength" style="font-size: smaller;">
+                                    Doctor Id should be of 9 characters
+                                  </div>
+                                  <div *ngIf="i.errors.maxlength" style="font-size: smaller;">
+                                    Doctor Id should be of 9 characters
+                                  </div>
+
+                              </div>
+                        
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Name</label><br>
+                            <input type="text" #n="ngModel" [(ngModel)]="doctor.doctorname" name="doctorName" id="username" class="form-control" required="required">
+                            <div *ngIf="n.invalid && (n.dirty || n.touched )" style="color: red;">
+
+                                <div *ngIf="n.errors.required" style="font-size: smaller;">
+                                  Name is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Username</label><br>
+                            <input type="text" #e="ngModel" [(ngModel)]="doctor.doctoremail" name="email" id="username" class="form-control" required="required">
+                            <div *ngIf="e.invalid && (e.dirty || e.touched )" style="color: red;">
+
+                                <div *ngIf="e.errors.required" style="font-size: smaller;">
+                                  Username is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="designation" class="text-info">Designation</label><br>
+                            <input type="text" #d="ngModel" [(ngModel)]="doctor.designation" name="designation" id="designation" class="form-control" required="required">
+                            <div *ngIf="d.invalid && (d.dirty || d.touched )" style="color: red;">
+
+                                <div *ngIf="d.errors.required" style="font-size: smaller;">
+                                  Designation is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group">      
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!-- <script type="text/javascript">
+        function disappear() { 
+                setTimeout(function() { 
+                    $('#disa').fadeOut('fast'); 
+                }, 1000);
+</script> -->
+</body>

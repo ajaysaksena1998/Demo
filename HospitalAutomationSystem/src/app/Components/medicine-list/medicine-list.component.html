@@ -1,0 +1,35 @@
+<body>
+<h2 style="text-align: center;">Medicines List</h2>
+<br><br>
+<div class="container">
+
+<table class="table">
+
+
+    <thead>
+
+        <tr>
+
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price/Qty</th>
+            <th>Expiry Date</th>
+
+        
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let medicine of data">
+
+            <td>{{medicine.medname}}</td>
+            <td>{{medicine.med_stock}}</td>
+            <td>{{medicine.priceperpiece}}</td>
+            <td>{{medicine.expiryDate | date}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+

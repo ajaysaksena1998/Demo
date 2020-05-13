@@ -1,0 +1,148 @@
+<body>
+    <div id="login">
+    <!-- <h3 class="text-center text-white pt-5">Please Add Receptionists</h3> -->
+    <div class="container">
+        <div id="login-row" class="row justify-content-left align-items-left">
+            <div id="login-column" class="col-md-12">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" #reg="ngForm" (ngSubmit)="!reg.invalid && registerPatients()">
+                        <h3 class="text-center text-info">Register Patients</h3>
+                        <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Patient ID</label><br>
+                            <input type="text" #n="ngModel" [(ngModel)]="patient.sapid" name="sapid" id="username" class="form-control" required="required" minlength="9" maxlength="9">
+                            <div *ngIf="n.invalid && (n.dirty || n.touched)" style="color: red;">
+
+                                <div *ngIf="n.errors.required" style="font-size: smaller;">
+                                  Patient ID is required.
+                                </div>
+                                <div *ngIf="n.errors.minlength" style="font-size: smaller">
+                                    Id should be of 9 characters
+                                  </div>
+                                  <div *ngIf="n.errors.maxlength" style="font-size: smaller">
+                                    Id should be of 9 characters
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Name</label><br>
+                            <input type="text" #na="ngModel" [(ngModel)]="patient.name" name="name" id="username" class="form-control" required="required">
+                            <div *ngIf="na.invalid && (na.dirty || na.touched)" style="color: red;">
+
+                                <div *ngIf="na.errors.required" style="font-size: smaller;">
+                                  Name is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Contact</label><br>
+                            <input type="text" #c="ngModel" [(ngModel)]="patient.contact" name="contact" id="username" class="form-control" required="required">
+                            <div *ngIf="c.invalid && (c.dirty || c.touched)" style="color: red;">
+
+                                <div *ngIf="c.errors.required" style="font-size: smaller">
+                                  Contact is required.
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Age</label><br>
+                            <input type="text" #ag="ngModel" [(ngModel)]="patient.age" name="age" id="username" class="form-control" required="required" maxlength="3">
+                            <div *ngIf="ag.invalid && (ag.dirty || ag.touched)" style="color: red;">
+
+                                <div *ngIf="ag.errors.required" style="font-size: smaller">
+                                  Age is required.
+                                </div>
+                                <div *ngIf="ag.errors.maxlength" style="font-size: smaller">
+                                    Id should be of 9 characters
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Gender</label><br>
+                            <select name="gender" [(ngModel)]="patient.gender" id="username" class="form-control">
+                                <option selected="true" disabled>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                        </div>
+                        <!-- <div class="form-check col-md-4">
+                            <input type="radio" class="form-check-input" id="materialChecked2" name="materialExample2" checked>
+                            <label class="form-check-label" for="materialChecked2">Male</label>
+                            <input type="radio" class="form-check-input" id="materialChecked2" name="materialExample2" checked>
+                            <label class="form-check-label" for="materialChecked2">Female</label>
+                          </div> -->
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Course</label><br>
+                            <input type="text" #co="ngModel" [(ngModel)]="patient.course" name="course" id="username" class="form-control" required="required">
+                            <div *ngIf="co.invalid && (co.dirty || co.touched)" style="color: red;">
+
+                                <div *ngIf="co.errors.required" style="font-size: smaller">
+                                  Contact is required.
+                                </div>
+                              </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Doctor</label><br>
+                            <select name="doctor" #sel="ngModel" [(ngModel)]="patient.doctorname" id="username" class="form-control">
+                                <option selected="true" disabled="disabled">Select Doctor</option>
+                                <option [value]="d" *ngFor="let d of doc">{{d}}</option>
+                            </select>
+                           
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Temperature</label><br>
+                            <input type="text" [(ngModel)]="patient.temperature" name="temperature" id="username" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Blood Pressure</label><br>
+                            <input type="text" [(ngModel)]="patient.bloodpressure" name="bloodpressure" id="username" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Weight</label><br>
+                            <input type="text" [(ngModel)]="patient.weight" name="weight" id="username" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Chronic Ailment</label><br>
+                            <input type="text" [(ngModel)]="patient.chronicAilment" name="chronicAilment" id="username" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="username" class="text-info">Allergies</label><br>
+                            <input type="text" [(ngModel)]="patient.allergies" name="allergies" id="username" class="form-control">
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Conveyance</label><br>
+                            <select name="Gender" id="username" [(ngModel)]="patient.conveyance" class="form-control">
+                                <option selected="true" disabled >Select Conveyance</option>
+                                <option value="Hostel Boarding" >Hostel Boarding</option>
+                                <option value="Day Scholar">Day Scholar</option>
+                              </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Hostel Address</label><br>
+                            <input type="text" [(ngModel)]="patient.hostelAddr" name="hostelAddr" id="username" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">           
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!-- <script type="text/javascript">
+        function disappear() { 
+                setTimeout(function() { 
+                    $('#disa').fadeOut('fast'); 
+                }, 1000);
+</script> -->
+</body>

@@ -1,0 +1,71 @@
+<body>
+    <div id="login">
+    <h3 class="text-center text-black pt-5">Please Add Medicine Stock</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" #add="ngForm" (ngSubmit)="!add.invalid && addStock()">
+                        <h3 class="text-center text-info">Add Medicines</h3>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="id" class="text-info">Name</label><br>
+                            <input type="text" #n="ngModel" [(ngModel)]="stock.medname" name="med_name" id="id" class="form-control" required="required">
+                            <div *ngIf="n.invalid && (n.dirty || n.touched )" style="color: red;">
+
+                                <div *ngIf="n.errors.required" style="font-size: smaller;">
+                                  Name is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Stock</label><br>
+                            <input type="text" #st="ngModel" [(ngModel)]="stock.med_stock" name="med_stock" id="username" class="form-control" required="required">
+                            <div *ngIf="st.invalid && (st.dirty || st.touched)" style="color: red;">
+
+                                <div *ngIf="st.errors.required" style="font-size: smaller;">
+                                  Stock is required.
+                                </div>
+                              </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Price per piece</label><br>
+                            <input type="text" #pr="ngModel" [(ngModel)]="stock.priceperpiece" name="priceperpiece"  id="username" class="form-control" required>
+                            <div *ngIf="pr.invalid && (pr.dirty || pr.touched)" style="color: red;">
+
+                                <div *ngIf="pr.errors.required" style="font-size: smaller;">
+                                  Price is required.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Expiry Date</label><br>
+                            <input type="date" #ex="ngModel" [(ngModel)]="stock.expiryDate" name="expiryDate" id="username" class="form-control" required="required">
+                            <div *ngIf="ex.invalid && (ex.dirty || ex.touched)" style="color: red;">
+
+                                <div *ngIf="ex.errors.required" style="font-size: smaller;">
+                                  Expiry Date is required.
+                                </div>
+                              </div>
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                            <br>        
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                        <pre class="alert alert-warning" *ngIf="b">{{msg}}</pre>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!-- <script type="text/javascript">
+        function disappear() { 
+                setTimeout(function() { 
+                    $('#disa').fadeOut('fast'); 
+                }, 1000);
+</script> -->
+</body>

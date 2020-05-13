@@ -1,0 +1,37 @@
+<body>
+<h2 style="text-align: center;">Prescribe Medicines</h2>
+<br>
+<div class="container">
+
+
+    <form #pres="ngForm" (ngSubmit)="prescribeMedicines()">
+        <fieldset class="form-group">
+            <label>Patient ID</label>
+            <input type="text"  [(ngModel)]="medical.sapid" name="sapid" class="form-control" readonly/>
+        </fieldset>
+        <div class="form-group">
+            <label>Medicines</label>
+            <textarea #med="ngModel" [(ngModel)]="medical.medicine" name="medicine" class="form-control" required="required"></textarea>
+            <div *ngIf="med.invalid && (med.dirty || med.touched)" style="color: red;">
+
+                <div *ngIf="med.errors.required">
+                  Medicine is required.
+                </div>
+              </div>
+        </div>
+    
+        <div class="form-group">
+            <label>Diagnosis</label>
+            <textarea #d="ngModel" [(ngModel)]="medical.diagnosis" name="diagnosis" class="form-control" required="required"></textarea>
+            <div *ngIf="d.invalid && (d.dirty || d.touched)" style="color: red;">
+
+                <div *ngIf="d.errors.required">
+                  Diagnosis is required.
+                </div>
+              </div>
+        </div>
+    
+        <button type="submit" class="btn btn-success">Prescribe</button>
+    </form>
+</div>
+</body>

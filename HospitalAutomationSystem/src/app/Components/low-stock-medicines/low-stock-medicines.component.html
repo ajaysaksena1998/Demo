@@ -1,0 +1,42 @@
+<body>
+    <h2 style="text-align: center;">Medicines List(Less Stock)</h2>
+    <div class="alert alert-warning container" *ngIf="message">{{message}}</div> 
+
+
+    <br><br>
+    <div class="container">
+    
+    <table class="table">
+    
+    
+        <thead>
+    
+            <tr>
+    
+                <th>Name</th>
+                <th>Stock</th>
+                <th>Price/Qty</th>
+                <th>Expiry Date</th>
+                <th>Delete</th>
+    
+            
+            </tr>
+        </thead>
+    
+        <tbody>
+    
+            <tr *ngFor="let medicine of data">
+    
+                <td>{{medicine.medname}}</td>
+                <td>{{medicine.med_stock}}</td>
+                <td>{{medicine.priceperpiece}}</td>
+                <td>{{medicine.expiryDate | date}}</td>
+                <td><button (click)="deleteMedicine(medicine)" class="btn btn-warning">Delete</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </body>
+    
+    

@@ -1,0 +1,98 @@
+<body>
+    <div id="login">
+    <h3 class="text-center text-black pt-5">Please Provide Medicines</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" (ngSubmit)="medicinesProvided()">
+                        <h3 class="text-center text-info">Provide Medicines</h3>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="id" class="text-info">Sap Id</label><br>
+                            <input type="text" [(ngModel)]="data.p1" name="p1" readonly id="id" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Name</label><br>
+                            <input type="text" [(ngModel)]="data.p2" name="p2" readonly id="username" class="form-control">
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Doctor Name</label><br>
+                            <input type="text" [(ngModel)]="data.p3" name="p3" readonly id="username" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Medicines</label><br>
+                            <input type="text" [(ngModel)]="data.p4" name="p4" readonly id="username" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="username" class="text-info">Diagnosis</label><br>
+                                <input type="text" [(ngModel)]="data.p5" name="p5" readonly id="username" class="form-control">
+                        </div>
+                        <!-- <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="username" class="text-info">Medicines Provided</label><br>
+                                <select name="medname" [(ngModel)]="medicines.medname" id="username" class="form-control">
+                                    <option selected="true" disabled="disabled">Select Medicines</option>
+                                    <option [value]="d" *ngFor="let d of med">{{d}}</option>
+                                </select>
+                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="username" class="text-info">Quantity Prescribed</label><br>
+                            <input type="text" [(ngModel)]="medicines.med_stock" name="med_stock" id="username" class="form-control">
+                        </div>
+                    </div> -->
+                    <button type="button" style="text-align: center;" class="btn btn-primary align-items-center" (click)="addAddress()">Add Medicines Details</button>
+
+                                        <section *ngFor="let address of medicineInfo; let i = index;">
+
+                        <!-- input fields inside the *ngFor -->
+                        <br>
+                        <div class="row">
+                        <div class="form-group col-md-4">
+                           <label for="username" class="text-info">Medicines Provided</label>
+                           <select name="medname_{{address.id}}" [(ngModel)]="address.medname" id="username" class="form-control">
+                            <option selected="true" disabled="disabled">Select Medicines</option>
+                            <option [value]="d" *ngFor="let d of med">{{d}}</option>
+                        </select>
+                           <!-- <input type="text" [(ngModel)]="address.medname"
+                             name="medname_{{address.id}}"/> -->
+                             </div>
+                             <div class="form-group col-md-4">
+                           <label for="username" class="text-info">Stock</label>
+                           <input type="text" [(ngModel)]="address.med_stock"
+                             name="med_stock_{{address.id}}" id="username" class="form-control"/>
+                             </div>
+                             <div class="form-group col-md-4">
+                                <label for="username" class="text-info">Remove</label><br>
+                                <button type="button" id="username" class="btn btn-danger" (click)="removeAddress(i)">Remove</button>
+                            </div>
+                             </div>
+                           <!-- <label>City</label>
+                           <input type="text" [(ngModel)]="address.city"
+                             name="city_{{i}}"/>
+                           <label>Country</label>
+                           <select [(ngModel)]="address.country" name="country_{{i}}" placeholder="India">
+                                 <option value="india">India</option>
+                                 <option value="usa">USA</option>
+                                  <option value="england">England</option>
+                           </select> -->
+                     </section>
+                        <div class="form-group">         
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!-- <script type="text/javascript">
+        function disappear() { 
+                setTimeout(function() { 
+                    $('#disa').fadeOut('fast'); 
+                }, 1000);
+</script> -->
+</body>

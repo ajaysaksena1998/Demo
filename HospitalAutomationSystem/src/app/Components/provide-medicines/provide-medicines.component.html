@@ -1,0 +1,45 @@
+<body>
+<h2 style="text-align: center;">Provide Medicines</h2>
+<br><br>
+<div class="container">
+
+<table class="table">
+
+
+    <thead>
+
+        <tr>
+
+            <th>Date</th>
+            <th>Patient Id</th>
+            <th>Name</th>
+            <th>Doctor Name</th>
+            <th>Medicines</th>
+            <th>Diagnosis</th>
+            <th>Provide Medicines</th>
+            <th>Delete</th>
+
+        
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let d of data">
+
+            <td>{{d.dateAndtime | date}}</td>
+            <td>{{d.sapid}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.doctorname}}</td>
+            <td>{{d.medicine}}</td>
+            <td>{{d.diagnosis}}</td>
+            <!-- <td><button (click)="provideMedicine(d)" class="btn btn-success">Click Here</button></td>             -->
+            <td><button (click)="provideMedicine(d)" class="btn btn-success">Click Here</button></td>    
+            <td><button (click)="deleteMedicine(d)" class="btn btn-warning">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+
+
